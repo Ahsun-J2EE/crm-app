@@ -1,8 +1,10 @@
 import 'package:crm_app/core/color_constant.dart';
-import 'package:crm_app/screens/login/login_screen.dart';
+import 'package:crm_app/screens/auth/login_screen.dart';
 import 'package:crm_app/screens/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../auth/registration_screen.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -72,7 +74,14 @@ class SplashScreen extends StatelessWidget {
                      },
                  ),
                  const SizedBox(height: 8,),
-                 Button(title: 'Registration', color: getButtonColorGreen(), textColor: Colors.white, onTap: (){},)
+                 Button(
+                   title: 'Registration',
+                   color: getButtonColorGreen(),
+                   textColor: Colors.white,
+                   onTap: (){
+                     Get.toNamed(RegistrationScreen.routeName);
+                   },
+                 )
                ],
              )
            ],

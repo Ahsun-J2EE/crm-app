@@ -1,12 +1,16 @@
-import 'package:crm_app/core/color_constant.dart';
+import 'package:crm_app/screens/auth/registration_screen.dart';
+import 'package:crm_app/screens/auth/reset_password_screen.dart';
 import 'package:crm_app/screens/widgets/app_text_field.dart';
 import 'package:crm_app/screens/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   static const String routeName='/login_screen';
   final emailController = TextEditingController();
   final passwordController= TextEditingController();
+
   Widget _loginScreenUpperPart(){
     return Column(
       children:[
@@ -35,24 +39,35 @@ class LoginScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Times new Roman',
+                    fontFamily: 'Unto',
                     color: Colors.blueAccent
                 ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(height: 20,),
               AppTextField(
                 controller: emailController, hintText: 'Email', icon: const Icon(Icons.email_outlined),
               ),
               AppTextField(
                 controller: passwordController, hintText: 'Password', icon:const Icon(Icons.lock_outline),
               ),
-              const SizedBox(height: 20,),
+              Container(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                    onPressed:(){
+                      Get.toNamed(ResetPasswordScreen.routeName);
+                    } ,
+                    child: const Text('Forgot password?')
+                ),
+              ),
+              const SizedBox(height:5,),
               Button(title: 'Login', color: Colors.blue, onTap: (){}, textColor: Colors.white),
               TextButton(
                 style: const ButtonStyle(
                   alignment: Alignment.center,
                 ),
-                  onPressed: (){},
+                  onPressed: (){
+                  Get.toNamed(RegistrationScreen.routeName);
+                  },
                   child: const Text("Don't have an account? Signup"))
             ]
         )
@@ -76,7 +91,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children:[
               _loginScreenUpperPart(),
-              const SizedBox(height: 80,),
+              const SizedBox(height: 40,),
               _loginScreenLowerPart()
             ],
           ),
