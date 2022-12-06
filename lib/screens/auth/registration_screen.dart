@@ -1,4 +1,5 @@
 import 'package:crm_app/screens/auth/secondary_registration.dart';
+import 'package:crm_app/screens/auth_controller/registration_controller.dart';
 import 'package:crm_app/screens/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -9,6 +10,8 @@ class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({Key? key}) : super(key: key);
   static const String routeName='/registration_screen';
   final emailController= TextEditingController();
+
+  final _controller = Get.put(RegistrationController());
 
   Widget _registrationScreenUpperPart(){
     return Column(
@@ -48,7 +51,7 @@ class RegistrationScreen extends StatelessWidget {
               Button(title: 'Sent',
                   color: Colors.blue,
                   onTap: (){
-                    _goToSecondaryRegistrationPage();
+                  _controller.goToSecondaryRegistrationPage();
                   },
                   textColor: Colors.white
               ),
@@ -59,13 +62,6 @@ class RegistrationScreen extends StatelessWidget {
         )
       ],
     );
-  }
-
-    void _goToSecondaryRegistrationPage () async{
-     EasyLoading.show(status: 'Loading...');
-     await Future.delayed(const Duration(seconds: 3));
-     Get.toNamed(SecondaryRegistration.routeName);
-     EasyLoading.dismiss();
   }
 
   @override

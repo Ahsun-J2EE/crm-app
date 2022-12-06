@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/', page:()=> const SplashScreen()),
         GetPage(name: LoginScreen.routeName, page: ()=>LoginScreen()),
         GetPage(name:RegistrationScreen.routeName, page: ()=> RegistrationScreen()),
-        GetPage(name: ResetPasswordScreen.routeName, page: ()=>const ResetPasswordScreen()),
+        GetPage(name: ResetPasswordScreen.routeName, page: ()=> ResetPasswordScreen()),
         GetPage(name: SecondaryRegistration.routeName, page: ()=> SecondaryRegistration())
       ],
       builder:EasyLoading.init(),

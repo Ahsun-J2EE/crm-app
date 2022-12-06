@@ -52,7 +52,7 @@ class SecondaryRegistration extends StatelessWidget {
                   onTap: (){
                     Fluttertoast.showToast(msg: 'Saved Successfully!',
                         toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
+                        gravity: ToastGravity.TOP,
                         timeInSecForIosWeb: 1,
                         backgroundColor: Colors.red,
                         textColor: Colors.white,
